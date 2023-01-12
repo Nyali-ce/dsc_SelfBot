@@ -1,0 +1,24 @@
+{
+  "name": "dsc_selfbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "nodemon -e ts, json, env --exec \"npm run build && node ./dist/bot.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/ws": "^8.5.4"
+  },
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "discord.js.userbot": "^1.0.3",
+    "dotenv": "^16.0.3",
+    "ws": "^8.12.0"
+  }
+}
