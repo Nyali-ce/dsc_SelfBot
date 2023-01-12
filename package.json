@@ -9,7 +9,7 @@
     "start": "nodemon -e ts, json, env --exec \"npm run build && node ./dist/bot.js\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Nyali.ce",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.11.18",
