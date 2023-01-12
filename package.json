@@ -16,8 +16,6 @@
     "@types/ws": "^8.5.4"
   },
   "dependencies": {
-    "discord.js": "^14.7.1",
-    "discord.js.userbot": "^1.0.3",
     "dotenv": "^16.0.3",
     "ws": "^8.12.0"
   }
