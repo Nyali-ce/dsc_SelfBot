@@ -1,1 +1,14 @@
-["Dispatch", "Heartbeat", "Identify", "PresenceUpdate", "VoiceStateUpdate", "Sus?", "Resume", "Reconnect", "RequestGuildMembers", "InvalidSession", "Hello", "HeartbeatAck"]
+[
+  "Dispatch",
+  "Heartbeat",
+  "Identify",
+  "PresenceUpdate",
+  "VoiceStateUpdate",
+  "Sus?",
+  "Resume",
+  "Reconnect",
+  "RequestGuildMembers",
+  "InvalidSession",
+  "Hello",
+  "HeartbeatAck"
+]
