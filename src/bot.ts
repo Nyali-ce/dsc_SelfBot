@@ -5,13 +5,13 @@ import 'dotenv/config';
 import importHandlers from './functions/utils/importHandlers.js';
 import connect from './functions/gateway/connect.js';
 
+const { USER_TOKEN } = process.env;
+
 const client = {
     ws: null,
     commands: {},
     events: {}
 };
-
-const { USER_TOKEN } = process.env;
 
 importHandlers(client);
 
