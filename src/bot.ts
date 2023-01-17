@@ -10,6 +10,7 @@ const { USER_TOKEN } = process.env;
 const client = {
     ws: null,
     commands: {},
+    privateCommands: {},
     events: {}
 };
 

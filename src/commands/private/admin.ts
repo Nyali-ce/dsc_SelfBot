@@ -1,8 +1,5 @@
 export default {
-    name: 'MESSAGE_CREATE',
+    name: 'admin',
     run: async (client: any, message: any) => {
-        if (!message.guild_id) {
-
-        }
     }
 }
