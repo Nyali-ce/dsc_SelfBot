@@ -1,6 +1,19 @@
 import { WebSocket } from "ws";
 
-const OPC = require('../../../src/OPC.json');
+const OPC = [
+    "Dispatch",
+    "Heartbeat",
+    "Identify",
+    "PresenceUpdate",
+    "VoiceStateUpdate",
+    "Sus?",
+    "Resume",
+    "Reconnect",
+    "RequestGuildMembers",
+    "InvalidSession",
+    "Hello",
+    "HeartbeatAck"
+]
 
 let heartbeat_interval: NodeJS.Timeout, connect_interval: NodeJS.Timeout;
 

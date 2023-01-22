@@ -10,4 +10,4 @@ const request = (path: string, dataType: any, id: string, data: any) => {
     }
 }
 
-export function clientAdmin(data: any) { return request(`src/data/bot/admin.json`, {}, 'bot', data) }
+export function clientAdmin(data: any) { return request(`src/data/client/admin.json`, {}, 'Le p\'tit Tommy', data) }
