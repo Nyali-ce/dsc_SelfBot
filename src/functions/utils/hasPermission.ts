@@ -5,16 +5,20 @@ export default (USER_ID: string, permission: string) => {
 
     const users = clientUser(null);
 
-    if (!users?.includes(USER_ID)) {
-        users.push({
+    const user = users.filter((user: any) => user.id === USER_ID)[0];
+
+    if (!user) {
+        const user = {
             id: USER_ID,
             permissions: []
-        })
+        }
+
+        users.push(user);
 
         clientUser(users);
 
         return false;
+    } else {
+        return user.permissions.includes(permission);
     }
-
-    return users[USER_ID].permissions.includes(permission);
 }

@@ -12,7 +12,7 @@ export default (USER_DATA: any) => {
 
         return USER_DATA;
     } else {
-        user = USER_DATA;
+        users.splice(users.indexOf(user), 1, USER_DATA);
 
         clientUser(users);
     }
