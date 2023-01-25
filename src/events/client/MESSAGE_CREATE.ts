@@ -1,4 +1,4 @@
-import { clientUser } from '../../functions/utils/database.js';
+import hasPermission from "../../functions/utils/hasPermission.js";
 
 export default {
     name: 'MESSAGE_CREATE',
@@ -13,20 +13,13 @@ export default {
 
         if (!command) return;
 
-        const users = clientUser(null);
-
-        if (command.permissions !== 'OWNER') {
-            switch (command.permissions) {
-                case 'ADMINISTRATOR':
-                    if (!users.admins.includes(message.author.id)) return;
-                    break;
-                default:
-                    break;
-            }
-        }
+        if (!hasPermission(message.author.id, command.permissions)) return
 
         try {
             command(client, message, args);
+
+            // ! remove before dist, only for testing
+            console.log(`Executed command ${commandName}`);
         } catch (error) {
             console.error(error);
         }

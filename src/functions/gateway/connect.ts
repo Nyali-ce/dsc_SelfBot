@@ -1,5 +1,6 @@
 import { WebSocket } from "ws";
 
+// ! remove before dist, only for testing
 const OPC = [
     "Dispatch",
     "Heartbeat",
@@ -71,7 +72,7 @@ const connect = (client: any, USER_TOKEN: string) => {
             }, payload.d.heartbeat_interval);
         }
 
-        // ! remove before dist, only used for debugging
+        // ! remove before dist, only for testing
         payload.op = `${OPC[payload.op]} (${payload.op})`;
         console.log(payload.op, payload.t);
     })
