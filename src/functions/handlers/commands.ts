@@ -9,9 +9,9 @@ export default (client: any) => {
 
             if (!command || !command.name || !command.run) return console.log(`${file} is not a valid command.`);
 
-            const { commands, privateCommands } = client;
+            const { commands } = client;
 
-            (folder === 'private' ? privateCommands : commands)[command.name] = command.run;
+            commands[command.name] = command.run;
 
             console.log(`Loaded command ${command.name}`);
         });

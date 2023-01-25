@@ -9,4 +9,4 @@ const request = (path: string, dataType: any, data: any) => {
     }
 }
 
-export function clientAdmin(data: any) { return request(`src/data/client/admin.json`, {}, data) }
+export function clientUser(data: any) { return request(`src/data/client/user.json`, { admins: [] }, data) }

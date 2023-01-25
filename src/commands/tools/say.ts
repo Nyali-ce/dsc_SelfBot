@@ -1,7 +1,7 @@
 import sendMessage from "../../functions/utils/sendMessage.js";
 
 export default {
-    name: 'send',
+    name: 'say',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
         const text = args.join(' ');

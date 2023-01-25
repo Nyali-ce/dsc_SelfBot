@@ -11,7 +11,6 @@ const client = {
     prefix: CLIENT_PREFIX,
     ws: null,
     commands: {},
-    privateCommands: {},
     events: {}
 };
 

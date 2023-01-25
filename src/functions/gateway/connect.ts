@@ -18,6 +18,8 @@ const OPC = [
 let heartbeat_interval: NodeJS.Timeout, connect_interval: NodeJS.Timeout;
 
 const connect = (client: any, USER_TOKEN: string) => {
+    if (!USER_TOKEN || typeof USER_TOKEN !== 'string') return console.log('Invalid token provided');
+
     client.ws = new WebSocket("wss://gateway.discord.gg/");
 
     client.ws.on('open', () => {
