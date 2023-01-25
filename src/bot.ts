@@ -5,10 +5,10 @@ import 'dotenv/config';
 import importHandlers from './functions/utils/importHandlers.js';
 import connect from './functions/gateway/connect.js';
 
-const { USER_TOKEN, BOT_PREFIX } = process.env;
+const { USER_TOKEN, CLIENT_PREFIX } = process.env;
 
 const client = {
-    prefix: BOT_PREFIX,
+    prefix: CLIENT_PREFIX,
     ws: null,
     commands: {},
     privateCommands: {},
