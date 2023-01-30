@@ -1,12 +1,18 @@
 import sendMessage from "../../functions/utils/sendMessage.js";
+import editMessage from "../../functions/utils/editMessage.js";
 
 export default {
     name: 'ping',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
-        sendMessage(message.channel_id, 'Pong!')
+        const startTime = Date.now()
 
-        // TODO: add actual ping in ms
-        // ? send message, then edit message and get time difference between sending and editing
+        await sendMessage(message.channel_id, 'Pong!');
+
+        const endTime = Date.now()
+
+        const timeDifference = endTime - startTime;
+
+        editMessage(message.channel_id, message.id, `Pong! Took ${timeDifference}ms to respond.`)
     },
 }
