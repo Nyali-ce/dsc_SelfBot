@@ -13,4 +13,6 @@ export default (channel: string, message: string) => {
             tts: false,
         }),
     })
+        .catch((err: any) => console.log(err))
+        .then((res: any) => { return res.json() });
 }
