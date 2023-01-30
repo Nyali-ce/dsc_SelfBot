@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
-export default (channel: string, message: string) => {
-    fetch(`https://discord.com/api/v9/channels/${channel}/messages`, {
+export default async (channel: string, message: string) => {
+    return fetch(`https://discord.com/api/v9/channels/${channel}/messages`, {
         method: 'POST',
         headers: {
             // @ts-expect-error
@@ -14,5 +14,5 @@ export default (channel: string, message: string) => {
         }),
     })
         .catch((err: any) => console.log(err))
-        .then((res: any) => { return res.json() });
+        .then((res: any) => res.json()).then((json: any) => { return json })
 }
