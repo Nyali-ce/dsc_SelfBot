@@ -2,6 +2,7 @@ import sendMessage from "../../functions/api/sendMessage.js"
 
 export default {
     name: 'avatar',
+    description: 'Get a user\'s avatar.',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
         const user = message.mentions[0] || message.author

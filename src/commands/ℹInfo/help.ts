@@ -3,6 +3,7 @@ import sendMessage from "../../functions/api/sendMessage.js"
 
 export default {
     name: 'help',
+    description: 'Get a list of commands.',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
         const commands: string[] = [];
@@ -22,7 +23,30 @@ export default {
         })
 
         if (!args[0]) {
-            sendMessage(message.channel_id, `Commands: ${commands.join(', ')}`);
+            const categories: any = {}
+
+            commands.forEach((command: any) => {
+                const category = command.split('/')[0];
+                const commandName = command.split('/')[1];
+
+                if (!categories[category]) categories[category] = [];
+
+                categories[category].push(commandName);
+            });
+
+            let text = '**__Commands:__**';
+
+            for (const category in categories) {
+                text += `\n**${category}:**`;
+
+                categories[category].forEach((command: any) => {
+                    text += ` \`${command}\``;
+                });
+            }
+
+            text += '\nUse `help <command>` to get more info about a command';
+
+            sendMessage(message.channel_id, text);
         } else {
             const command = commands.find((command: any) => command.split('/')[1] === args[0]);
 
@@ -30,7 +54,7 @@ export default {
 
             const { default: commandInfo } = await import(`../../commands/${command}.js`);
 
-            sendMessage(message.channel_id, `Name: ${commandInfo.name}\nDescription: ${commandInfo.description}\nPermissions: ${commandInfo.permissions?.join(', ')}`);
+            sendMessage(message.channel_id, `**Command:** ${commandInfo.name}\n**Description:** ${commandInfo.description}\n**Permissions:** ${commandInfo.permissions?.join(', ')}`);
         }
     }
 }

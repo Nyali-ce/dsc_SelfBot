@@ -3,6 +3,7 @@ import sendMessage from "../../functions/api/sendMessage.js";
 
 export default {
     name: 'admin',
+    description: 'Add or remove admins.',
     permissions: ['OWNER'],
     run: async (client: any, message: any, args: any) => {
         switch (args[0]) {

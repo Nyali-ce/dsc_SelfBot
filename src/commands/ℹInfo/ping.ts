@@ -3,6 +3,7 @@ import editMessage from "../../functions/api/editMessage.js";
 
 export default {
     name: 'ping',
+    description: 'Get the bot\'s ping.',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
         const startTime = Date.now()
