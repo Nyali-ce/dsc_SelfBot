@@ -1,8 +1,5 @@
-import { clientUser } from "../../functions/utils/database.js";
-import hasPermission from "../../functions/utils/hasPermission.js";
-import getUser from "../../functions/utils/getUser.js";
-import setUser from "../../functions/utils/setUser.js";
-import sendMessage from "../../functions/utils/sendMessage.js";
+import { clientUser, getUser, setUser, hasPermission } from "../../functions/utils/database.js";
+import sendMessage from "../../functions/api/sendMessage.js";
 
 export default {
     name: 'admin',

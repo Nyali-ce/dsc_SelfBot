@@ -1,5 +1,5 @@
-import sendMessage from "../../functions/utils/sendMessage.js";
-import editMessage from "../../functions/utils/editMessage.js";
+import sendMessage from "../../functions/api/sendMessage.js";
+import editMessage from "../../functions/api/editMessage.js";
 
 export default {
     name: 'ping',

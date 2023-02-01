@@ -1,4 +1,4 @@
-import hasPermission from "../../functions/utils/hasPermission.js";
+import { hasPermission } from "../../functions/utils/database.js";
 
 export default {
     name: 'MESSAGE_CREATE',

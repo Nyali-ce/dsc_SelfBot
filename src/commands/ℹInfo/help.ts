@@ -1,5 +1,5 @@
 import fs from 'fs';
-import sendMessage from "../../functions/utils/sendMessage.js"
+import sendMessage from "../../functions/api/sendMessage.js"
 
 export default {
     name: 'help',
