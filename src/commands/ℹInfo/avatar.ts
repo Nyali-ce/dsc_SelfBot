@@ -3,7 +3,7 @@ import User from "../../functions/parser/user.js";
 export default {
     name: 'avatar',
     description: 'Get a user\'s avatar.',
-    permissions: ['ADMINISTRATOR'],
+    permission: 'ADMINISTRATOR',
     run: async (client: any, message: any, args: any) => {
         const userData = message.mentions[0] || message.author
 

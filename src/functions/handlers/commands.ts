@@ -11,7 +11,7 @@ export default (client: any) => {
 
             const { commands } = client;
 
-            commands[command.name] = command.run;
+            commands[command.name] = command;
 
             console.log(`Loaded command ${command.name}`);
         });

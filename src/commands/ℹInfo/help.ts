@@ -5,7 +5,7 @@ const commands: string[] = [];
 export default {
     name: 'help',
     description: 'Get a list of commands.',
-    permissions: ['ADMINISTRATOR'],
+    permission: 'ADMINISTRATOR',
     run: async (client: any, message: any, args: any) => {
 
         await new Promise((resolve) => {

@@ -3,7 +3,7 @@ import Message from "../../functions/parser/message.js"
 export default {
     name: 'ping',
     description: 'Get the bot\'s ping.',
-    permissions: ['ADMINISTRATOR'],
+    permission: 'ADMINISTRATOR',
     run: async (client: any, message: any, args: any) => {
         const startTime = Date.now()
 

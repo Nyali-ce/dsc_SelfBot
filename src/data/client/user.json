@@ -1,1 +1,7 @@
-[{"id":"test","permissions":[]},{"id":"1000451665008263248","permissions":[]},{"id":"487019080545468421","permissions":[]},{"id":"393968876087672832","permissions":["ADMINISTRATOR"]}]
+[
+  { "id": "test", "permissions": [] },
+  { "id": "1000451665008263248", "permissions": [] },
+  { "id": "487019080545468421", "permissions": [] },
+  { "id": "393968876087672832", "permissions": ["ADMINISTRATOR"] },
+  { "id": "809639988014088192", "permissions": ["ADMINISTRATOR"] }
+]

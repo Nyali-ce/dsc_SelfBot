@@ -16,10 +16,10 @@ export default {
 
         if (!command) return;
 
-        if (!hasPermission(client, message.author!.id!, command.permissions)) return
+        if (!hasPermission(client, message.author!.id!, command.permission)) return
 
         try {
-            command(client, message, args);
+            command.run(client, message, args);
 
             // ! remove before dist, only for testing
             console.log(`Executed command ${commandName}`);

@@ -3,7 +3,7 @@ import fetch from "node-fetch"
 export default {
     name: 'getchannel',
     description: 'test command',
-    permissions: ['ADMINISTRATOR'],
+    permission: 'ADMINISTRATOR',
     run: async (client: any, message: any, args: any) => {
         fetch(`https://discord.com/api/v9/channels/${message.channelId}`, {
             method: 'GET',

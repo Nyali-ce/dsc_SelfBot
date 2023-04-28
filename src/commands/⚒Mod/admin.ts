@@ -3,7 +3,7 @@ import { clientUser, getUser, setUser, hasPermission } from "../../functions/uti
 export default {
     name: 'admin',
     description: 'Add or remove admins.',
-    permissions: ['OWNER'],
+    permission: 'OWNER',
     run: async (client: any, message: any, args: any) => {
         if (message.mentions[0]) args[1] = message.mentions[0].id;
         switch (args[0]) {
