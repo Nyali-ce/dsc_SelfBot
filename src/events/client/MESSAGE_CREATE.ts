@@ -1,19 +1,22 @@
 import { hasPermission } from "../../functions/utils/database.js";
+import Message from "../../functions/parser/message.js";
 
 export default {
     name: 'MESSAGE_CREATE',
-    run: async (client: any, message: any) => {
-        if (message.author.bot) return;
-        if (!message.content.startsWith(client.prefix)) return;
+    run: async (client: any, rawMessage: any) => {
+        const message = new Message(rawMessage);
 
-        const args = message.content.slice(client.prefix.length).trim().split(/ +/g);
-        const commandName = args.shift().toLowerCase();
+        if (message.author!.bot) return;
+        if (!message.content!.startsWith(client.prefix)) return;
+
+        const args = message.content!.slice(client.prefix.length).trim().split(/ +/g);
+        const commandName = args.shift()!.toLowerCase();
 
         const command = client.commands[commandName]
 
         if (!command) return;
 
-        if (!hasPermission(message.author.id, command.permissions)) return
+        if (!hasPermission(client, message.author!.id!, command.permissions)) return
 
         try {
             command(client, message, args);

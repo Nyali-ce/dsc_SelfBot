@@ -1,12 +1,12 @@
 import fs from 'fs';
-import sendMessage from "../../functions/api/sendMessage.js"
+
+const commands: string[] = [];
 
 export default {
     name: 'help',
     description: 'Get a list of commands.',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
-        const commands: string[] = [];
 
         await new Promise((resolve) => {
             const commandFolder = fs.readdirSync('./dist/commands');
@@ -46,15 +46,15 @@ export default {
 
             text += '\nUse `help <command>` to get more info about a command';
 
-            sendMessage(message.channel_id, text);
+            message.channel.send(text);
         } else {
             const command = commands.find((command: any) => command.split('/')[1] === args[0]);
 
-            if (!command) return sendMessage(message.channel_id, 'Invalid command');
+            if (!command) return message.channel.send('Invalid command');
 
             const { default: commandInfo } = await import(`../../commands/${command}.js`);
 
-            sendMessage(message.channel_id, `**Command:** ${commandInfo.name}\n**Description:** ${commandInfo.description}\n**Permissions:** ${commandInfo.permissions?.join(', ')}`);
+            message.channel.send(`**Command:** ${commandInfo.name}\n**Description:** ${commandInfo.description}\n**Permissions:** ${commandInfo.permissions?.join(', ')}`);
         }
     }
 }

@@ -1,4 +1,5 @@
 import fs from 'fs';
+import Client from '../api/client.js';
 
 const request = (path: string, dataType: any, data: any) => {
     if (!data) {
@@ -48,8 +49,8 @@ const setUser = (USER_DATA: any) => {
     }
 }
 
-const hasPermission = (USER_ID: string, permission: string) => {
-    if (USER_ID === process.env.USER_ID) return true;
+const hasPermission = (client: Client, USER_ID: string, permission: string) => {
+    if (USER_ID === client.USER_ID) return true;
 
     const users = clientUser(null);
 

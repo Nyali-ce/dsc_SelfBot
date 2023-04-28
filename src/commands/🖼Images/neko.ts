@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-import sendMessage from "../../functions/api/sendMessage.js";
 
 export default {
     name: 'neko',
@@ -9,6 +8,6 @@ export default {
         const res: any = await fetch('https://nekos.life/api/v2/img/neko');
         const img: string = (await res.json()).url;
 
-        sendMessage(message.channel_id, img)
+        message.channel.send(img)
     }
 }

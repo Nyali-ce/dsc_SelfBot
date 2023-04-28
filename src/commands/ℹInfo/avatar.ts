@@ -1,18 +1,20 @@
-import sendMessage from "../../functions/api/sendMessage.js"
+import User from "../../functions/parser/user.js";
 
 export default {
     name: 'avatar',
     description: 'Get a user\'s avatar.',
     permissions: ['ADMINISTRATOR'],
     run: async (client: any, message: any, args: any) => {
-        const user = message.mentions[0] || message.author
+        const userData = message.mentions[0] || message.author
+
+        const user = new User({ id: userData.id, avatar: userData.avatar });
 
         const avatar = user.avatar
-            ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=1024`
+            ? user.displayAvatarURL(1024)
             : undefined;
 
-        if (!avatar) return sendMessage(message.channel_id, 'No avatar found.');
+        if (!avatar) return message.channel.send('No avatar found.');
 
-        sendMessage(message.channel_id, avatar);
+        message.channel.send(avatar);
     }
 }

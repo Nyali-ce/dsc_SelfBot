@@ -67,6 +67,7 @@ class Client {
     commands: any;
     ws: any;
     USER_TOKEN: string;
+    USER_ID: string | null;
 
     constructor(prefix: string, USER_TOKEN: string) {
         this.prefix = prefix;
@@ -74,6 +75,7 @@ class Client {
         this.commands = {};
         this.ws = null;
         this.USER_TOKEN = USER_TOKEN;
+        this.USER_ID = null;
         handlers(this);
     }
 
