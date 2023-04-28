@@ -1,5 +1,9 @@
 # dsc_SelfBot
 
+## Requirements
+
+- [Node.js](https://nodejs.org/en/) v12 or higher
+
 ## Configuration
 
 create a file called `.env` in the root directory of the project and add the following lines:
