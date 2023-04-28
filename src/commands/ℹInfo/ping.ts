@@ -1,4 +1,4 @@
-import Message from "../../functions/parser/message.js"
+import Message from "../../functions/api/message.js"
 
 export default {
     name: 'ping',

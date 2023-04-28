@@ -1,5 +1,5 @@
 import { hasPermission } from "../../functions/utils/database.js";
-import Message from "../../functions/parser/message.js";
+import Message from "../../functions/api/message.js";
 
 export default {
     name: 'MESSAGE_CREATE',
