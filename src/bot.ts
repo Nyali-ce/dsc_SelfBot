@@ -2,19 +2,13 @@ process.on('unhandledRejection', console.error);
 process.on('uncaughtException', console.error);
 
 import 'dotenv/config';
-import handlers from './functions/utils/handlers.js';
-import connect from './functions/api/connect.js';
+import Client from './functions/api/client.js';
 
 const { USER_TOKEN, CLIENT_PREFIX } = process.env;
 
-const client = {
-    prefix: CLIENT_PREFIX,
-    ws: null,
-    commands: {},
-    events: {}
-};
+if (!USER_TOKEN) throw new Error('USER_TOKEN is not defined');
+if (!CLIENT_PREFIX) throw new Error('CLIENT_PREFIX is not defined');
 
-handlers(client);
+const client = new Client(CLIENT_PREFIX, USER_TOKEN);
 
-// @ts-expect-error
-connect(client, USER_TOKEN);
+client.login();

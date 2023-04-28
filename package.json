@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "clear": "rmdir -rf dist",
-    "start": "nodemon -e ts, json, env --exec \"npm run build && node ./dist/bot.js\""
+    "start": "nodemon -e ts, json, env --exec \"npm run build && node .\""
   },
   "keywords": [],
   "author": "Nyali.ce",
