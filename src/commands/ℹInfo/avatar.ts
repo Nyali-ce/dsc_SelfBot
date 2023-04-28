@@ -1,4 +1,4 @@
-import User from "../../functions/parser/user.js";
+import User from "../../functions/api/user.js";
 
 export default {
     name: 'avatar',
