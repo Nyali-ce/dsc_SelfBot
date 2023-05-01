@@ -1,3 +1,5 @@
+import Client from "../../functions/api/client.js";
+import Message from "../../functions/api/message.js";
 import fs from 'fs';
 
 const commands: string[] = [];
@@ -6,7 +8,7 @@ export default {
     name: 'help',
     description: 'Get a list of commands.',
     permission: 'ADMINISTRATOR',
-    run: async (client: any, message: any, args: string[]) => {
+    run: async (client: Client, message: Message, args: string[]) => {
 
         await new Promise((resolve) => {
             const commandFolder = fs.readdirSync('./dist/commands');

@@ -1,3 +1,4 @@
+import Message from "./message";
 import fetch from "node-fetch";
 
 class TextChannel {
@@ -86,7 +87,7 @@ class TextChannel {
             }),
         })
             .catch((err: any) => console.log(err))
-            .then((res: any) => res.json()).then((json: any) => { return json })
+            .then((res: any) => res.json()).then((json: any) => { return new Message(json) })
     }
 }
 

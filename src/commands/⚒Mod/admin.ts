@@ -1,10 +1,12 @@
+import Client from "../../functions/api/client.js";
+import Message from "../../functions/api/message.js";
 import { clientUser, getUser, setUser, hasPermission } from "../../functions/utils/database.js";
 
 export default {
     name: 'admin',
     description: 'Add or remove admins.',
     permission: 'OWNER',
-    run: async (client: any, message: any, args: string[]) => {
+    run: async (client: Client, message: Message, args: string[]) => {
         if (message.mentions[0]) args[1] = message.mentions[0].id;
         switch (args[0]) {
             case 'add':
