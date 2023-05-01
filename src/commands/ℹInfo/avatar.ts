@@ -7,7 +7,7 @@ const run = async (client: Client, message: Message, args: string[]) => {
 
     const avatar: string = user.displayAvatarURL(1024)
 
-    message.channel.send(avatar);
+    message.channel.send('', [{ image: { avatar } }]);
 }
 
 export default {

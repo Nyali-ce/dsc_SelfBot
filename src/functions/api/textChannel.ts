@@ -73,7 +73,7 @@ class TextChannel {
         this.id = channel.channel_id;
     }
 
-    async send(content: string) {
+    async send(content: string, embeds: any[] = []) {
         return fetch(`https://discord.com/api/v9/channels/${this.id}/messages`, {
             method: 'POST',
             headers: {
@@ -83,6 +83,7 @@ class TextChannel {
             },
             body: JSON.stringify({
                 content: content,
+                embeds: embeds,
                 tts: false,
             }),
         })
