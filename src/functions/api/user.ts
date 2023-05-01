@@ -1,34 +1,35 @@
-class User {
-    /*
-    accentColor
-    avatar
-    banner
-    bot
-    client
-    createdAt
-    createdTimestamp
-    defaultAvatarURL
-    discriminator
-    dmChannel
-    flags
-    hexAccentColor
-    id
-    partial
-    system
-    tag
-    username
+/*
+accentColor
+avatar
+banner
+bot
+client
+createdAt
+createdTimestamp
+defaultAvatarURL
+discriminator
+dmChannel
+flags
+hexAccentColor
+id
+partial
+system
+tag
+username
 
-    avatarURL
-    bannerURL
-    createDM
-    deleteDM
-    displayAvatarURL
-    equals
-    fetch
-    fetchFlags
-    send
-    toString
-    */
+avatarURL
+bannerURL
+createDM
+deleteDM
+displayAvatarURL
+equals
+fetch
+fetchFlags
+send
+toString
+*/
+
+class User {
     id: string;
     flags: number;
     discriminator: string;
