@@ -36,74 +36,75 @@ import User from './user.js';
   attachments: []
 } */
 
-class Message {
-    /*
-    activity
-    applicationId
-    attachments
-    author
-    bulkDeletable
-    channel
-    channelId
-    cleanContent
-    client
-    components
-    content
-    createdAt
-    createdTimestamp
-    crosspostable
-    deletable
-    editable
-    editedAt
-    editedTimestamp
-    embeds
-    flags
-    groupActivityApplication
-    guild
-    guildId
-    hasThread
-    id
-    interaction
-    member
-    mentions
-    nonce
-    partial
-    pinnable
-    pinned
-    position
-    reactions
-    reference
-    roleSubscriptionData
-    stickers
-    system
-    thread
-    tts
-    type
-    url
-    webhookId
+/*
+activity
+applicationId
+attachments
+author
+bulkDeletable
+channel
+channelId
+cleanContent
+client
+components
+content
+createdAt
+createdTimestamp
+crosspostable
+deletable
+editable
+editedAt
+editedTimestamp
+embeds
+flags
+groupActivityApplication
+guild
+guildId
+hasThread
+id
+interaction
+member
+mentions
+nonce
+partial
+pinnable
+pinned
+position
+reactions
+reference
+roleSubscriptionData
+stickers
+system
+thread
+tts
+type
+url
+webhookId
 
-    awaitMessageComponent
-    awaitReactions
-    createMessageComponentCollector
-    createReactionCollector
-    crosspost
-    delete
-    edit
-    equals
-    fetch
-    fetchReference
-    fetchWebhook
-    inGuild
-    pin
-    react
-    removeAttachments
-    reply
-    resolveComponent
-    startThread
-    suppressEmbeds
-    toString
-    unpin
-        */
+awaitMessageComponent
+awaitReactions
+createMessageComponentCollector
+createReactionCollector
+crosspost
+delete
+edit
+equals
+fetch
+fetchReference
+fetchWebhook
+inGuild
+pin
+react
+removeAttachments
+reply
+resolveComponent
+startThread
+suppressEmbeds
+toString
+unpin
+*/
+
+class Message {
     author: User;
     channel: TextChannel;
     channelId: string;
