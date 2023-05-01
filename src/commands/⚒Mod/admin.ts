@@ -4,7 +4,7 @@ export default {
     name: 'admin',
     description: 'Add or remove admins.',
     permission: 'OWNER',
-    run: async (client: any, message: any, args: any) => {
+    run: async (client: any, message: any, args: string[]) => {
         if (message.mentions[0]) args[1] = message.mentions[0].id;
         switch (args[0]) {
             case 'add':
