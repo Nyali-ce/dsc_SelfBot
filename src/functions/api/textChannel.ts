@@ -66,7 +66,7 @@ class TextChannel {
     setType
     toString
     */
-    id: string | undefined;
+    id: string;
 
     constructor(channel: any) {
         this.id = channel.channel_id;

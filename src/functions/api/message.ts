@@ -104,15 +104,16 @@ class Message {
     toString
     unpin
         */
-    author: User | undefined;
-    channel: TextChannel | undefined;
-    channelId: string | undefined;
-    content: string | undefined;
-    createdAt: Date | undefined;
-    createdTimestamp: number | undefined;
-    id: string | undefined;
-    tts: boolean | undefined;
-    mentions: any | undefined;
+    author: User;
+    channel: TextChannel;
+    channelId: string;
+    content: string;
+    createdAt: Date;
+    createdTimestamp: number;
+    id: string;
+    tts: boolean;
+    mentions: any;
+    pinned: boolean;
     constructor(message: any) {
         this.author = new User(message.author);
         this.channel = new TextChannel({ channel_id: message.channel_id });
@@ -122,7 +123,8 @@ class Message {
         this.createdTimestamp = this.createdAt.getTime();
         this.id = message.id;
         this.tts = message.tts;
-        this.mentions = message.mentions;
+        this.mentions = message.mentions.map((mention: any) => new User(mention));
+        this.pinned = message.pinned;
     }
 
     edit(content: string) {

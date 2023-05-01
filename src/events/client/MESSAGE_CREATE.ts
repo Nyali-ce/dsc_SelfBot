@@ -6,6 +6,10 @@ export default {
     run: async (client: any, rawMessage: any) => {
         const message = new Message(rawMessage);
 
+        if (message.content === '!!test') {
+            console.log(rawMessage)
+        }
+
         if (message.author!.bot) return;
         if (!message.content!.startsWith(client.prefix)) return;
 

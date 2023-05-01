@@ -1,5 +1,47 @@
 import { WebSocket } from "ws";
-import handlers from "../utils/handlers.js";
+import fs from 'fs'
+
+const commandHandler = (client: Client) => {
+    fs.readdirSync('dist/commands').forEach(folder => {
+        const commandFiles = fs.readdirSync(`dist/commands/${folder}`).filter(file => file.endsWith('.js'));
+
+        commandFiles.forEach(async file => {
+            const { default: command } = await import(`../../commands/${folder}/${file}`);
+
+            if (!command || !command.name || !command.run) return console.log(`${file} is not a valid command.`);
+
+            const { commands } = client;
+
+            commands[command.name] = command;
+
+            console.log(`Loaded command ${command.name}`);
+        });
+    });
+}
+
+const eventHandler = (client: Client) => {
+    fs.readdirSync('dist/events').forEach(folder => {
+        const eventFiles = fs.readdirSync(`dist/events/${folder}`).filter(file => file.endsWith('.js'));
+
+        switch (folder) {
+            case 'client':
+                eventFiles.forEach(async file => {
+                    const { default: event } = await import(`../../events/${folder}/${file}`);
+
+                    if (!event || !event.name || !event.run) return;
+
+                    const { events } = client;
+                    events[event.name] = event.run;
+
+                    console.log(`Loaded event ${event.name}`);
+                });
+                break;
+            default:
+                break;
+        }
+    })
+}
+
 
 // ! remove before dist, only for testing
 const OPC = [
@@ -76,7 +118,8 @@ class Client {
         this.ws = null;
         this.USER_TOKEN = USER_TOKEN;
         this.USER_ID = null;
-        handlers(this);
+        commandHandler(this);
+        eventHandler(this);
     }
 
     login = () => {

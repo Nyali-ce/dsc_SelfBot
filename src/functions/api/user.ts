@@ -29,12 +29,12 @@ class User {
     send
     toString
     */
-    id: string | undefined;
-    flags: number | undefined;
-    discriminator: string | undefined;
-    avatar: string | undefined;
-    username: string | undefined;
-    bot: boolean | undefined;
+    id: string;
+    flags: number;
+    discriminator: string;
+    avatar: string;
+    username: string;
+    bot: boolean;
     constructor(author: any) {
         this.id = author.id;
         this.flags = author.public_flags;
