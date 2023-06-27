@@ -38,7 +38,7 @@ class User {
     bot: boolean;
     constructor(author: any) {
         this.id = author.id;
-        this.flags = author.public_flags;
+        this.flags = author.flags;
         this.discriminator = author.discriminator;
         this.avatar = author.avatar;
         this.username = author.username;
@@ -49,6 +49,33 @@ class User {
         return this.avatar ?
             `https://cdn.discordapp.com/avatars/${this.id}/${this.avatar}.png?size=${size}` :
             `https://discord.com/assets/1f0bfc0865d324c2587920a7d80c609b.png`;
+    }
+
+    block() {
+        const headers = new Headers();
+        headers.set('authorization', process.env.USER_TOKEN || '');
+        headers.set('content-type', 'application/json');
+
+        const body = JSON.stringify({
+            type: 2,
+        });
+
+        return fetch(`https://discord.com/api/v9/users/@me/relationships/${this.id}`, {
+            method: 'PUT',
+            headers,
+            body,
+        });
+    }
+
+    unblock() {
+        const headers = new Headers();
+        headers.set('authorization', process.env.USER_TOKEN || '');
+        headers.set('content-type', 'application/json');
+
+        return fetch(`https://discord.com/api/v9/users/@me/relationships/${this.id}`, {
+            method: 'DELETE',
+            headers,
+        });
     }
 }
 

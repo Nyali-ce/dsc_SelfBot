@@ -129,16 +129,18 @@ class Message {
     }
 
     edit(content: string) {
+        const headers = new Headers();
+        headers.set('authorization', process.env.USER_TOKEN || '');
+        headers.set('content-type', 'application/json');
+
+        const body = JSON.stringify({
+            content: content,
+        });
+
         return fetch(`https://discord.com/api/v9/channels/${this.channelId}/messages/${this.id}`, {
             method: 'PATCH',
-            headers: {
-                // @ts-expect-error
-                'authorization': process.env.USER_TOKEN,
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({
-                content: content,
-            }),
+            headers,
+            body,
         })
             .catch((err: any) => console.log(err))
             .then((res: any) => res.json()).then((json: any) => { return json })

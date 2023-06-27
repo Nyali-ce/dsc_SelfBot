@@ -1,7 +1,1 @@
-[
-  { "id": "test", "permissions": [] },
-  { "id": "1000451665008263248", "permissions": [] },
-  { "id": "487019080545468421", "permissions": [] },
-  { "id": "393968876087672832", "permissions": ["ADMINISTRATOR"] },
-  { "id": "809639988014088192", "permissions": ["ADMINISTRATOR"] }
-]
+[{"id":"test","permissions":[]},{"id":"1000451665008263248","permissions":[]},{"id":"487019080545468421","permissions":[]},{"id":"393968876087672832","permissions":["ADMINISTRATOR"]},{"id":"809639988014088192","permissions":["ADMINISTRATOR"]},{"id":"320966221023412225","permissions":["ADMINISTRATOR"]},{"id":"336572553583656961","permissions":["ADMINISTRATOR"]},{"id":"792100065039613952","permissions":[]},{"id":"452526932823638027","permissions":[]},{"id":"602974369815461892","permissions":["ADMINISTRATOR"]},{"id":"1016151811620601996","permissions":["ADMINISTRATOR"]},{"id":"662120001532067881","permissions":["ADMINISTRATOR"]},{"id":"920862346900045824","permissions":[]},{"id":"773579947235082242","permissions":[]},{"id":"523573425755652139","permissions":[]}]

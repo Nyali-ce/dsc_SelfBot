@@ -75,17 +75,19 @@ class TextChannel {
     }
 
     async send(content: string) {
+        const headers = new Headers();
+        headers.set('authorization', process.env.USER_TOKEN || '');
+        headers.set('content-type', 'application/json');
+
+        const body = JSON.stringify({
+            content: content,
+            tts: false,
+        })
+
         return fetch(`https://discord.com/api/v9/channels/${this.id}/messages`, {
             method: 'POST',
-            headers: {
-                // @ts-expect-error
-                'authorization': process.env.USER_TOKEN,
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({
-                content: content,
-                tts: false,
-            }),
+            headers,
+            body: body,
         })
             .catch((err: any) => console.log(err))
             .then((res: any) => res.json()).then((json: any) => {
