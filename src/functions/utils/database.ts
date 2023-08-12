@@ -66,9 +66,9 @@ const hasPermission = (client: Client, USER_ID: string, permission: string) => {
 
         clientUser(users);
 
-        return false;
+        return permission === 'EVERYONE';
     } else {
-        return user.permissions.includes(permission);
+        return permission === 'EVERYONE' || user.permissions.includes(permission);
     }
 }
 
