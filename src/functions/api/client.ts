@@ -87,9 +87,6 @@ const onMessage = (client: Client, data: Buffer) => {
             });
         }
 
-        // op code 11 means "Heartbeat ACK" so we stop the heartbeat interval
-        if (payload.op === 11 && heartbeat_interval) clearInterval(heartbeat_interval);
-
         // websocket works using heartbeat, so we need to send a heartbeat every x seconds (discord sends the interval in the Hello payload)
         if (payload.d?.heartbeat_interval) {
             heartbeat_interval = setInterval(() => {
