@@ -1,6 +1,7 @@
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
 import fetch from "node-fetch"
+import Permission from "../../enums/Permission.js";
 
 const run = (client: Client, message: Message, args: string[]) => {
     const url = `https://discord.com/api/v9/channels/${message.channelId}`
@@ -20,6 +21,6 @@ const run = (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'getchannel',
     description: 'test command',
-    permission: 'ADMINISTRATOR',
+    permission: Permission.ADMINISTRATOR,
     run
 }

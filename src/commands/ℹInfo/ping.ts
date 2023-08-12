@@ -1,3 +1,4 @@
+import Permission from "../../enums/Permission.js";
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
 
@@ -14,6 +15,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'ping',
     description: 'Get the bot\'s ping.',
-    permission: 'ADMINISTRATOR',
+    permission: Permission.ADMINISTRATOR,
     run
 }

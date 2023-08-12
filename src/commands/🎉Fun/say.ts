@@ -1,5 +1,6 @@
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
+import Permission from "../../enums/Permission.js";
 
 const run = async (client: Client, message: Message, args: string[]) => {
     const text = args.join(' ');
@@ -17,6 +18,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'say',
     description: 'Make the bot say something.',
-    permission: 'ADMINISTRATOR',
+    permission: Permission.ADMINISTRATOR,
     run
 }

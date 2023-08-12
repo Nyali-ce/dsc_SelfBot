@@ -1,5 +1,6 @@
 import fs from 'fs';
 import Client from '../api/client.js';
+import Permission from "../../enums/Permission.js";
 
 const request = (path: string, dataType: any, data: any) => {
     if (!data) {
@@ -66,9 +67,9 @@ const hasPermission = (client: Client, USER_ID: string, permission: string) => {
 
         clientUser(users);
 
-        return permission === 'EVERYONE';
+        return permission === Permission.EVERYONE;
     } else {
-        return permission === 'EVERYONE' || user.permissions.includes(permission);
+        return permission === Permission.EVERYONE || user.permissions.includes(permission);
     }
 }
 

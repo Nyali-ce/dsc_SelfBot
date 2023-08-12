@@ -1,15 +1,16 @@
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
 import { clientUser, getUser, setUser, hasPermission } from "../../functions/utils/database.js";
+import Permission from "../../enums/Permission.js";
 
 const addUser = (client: Client, message: Message, id: string) => {
     if (!id) return;
 
     const user = getUser(id);
 
-    if (hasPermission(client, user.id, 'ADMINISTRATOR')) return message.channel.send('User is already an admin.');
+    if (hasPermission(client, user.id, Permission.ADMINISTRATOR)) return message.channel.send('User is already an admin.');
 
-    user.permissions.push('ADMINISTRATOR');
+    user.permissions.push(Permission.ADMINISTRATOR);
 
     setUser(user);
 
@@ -21,9 +22,9 @@ const removeUser = (client: Client, message: Message, id: string) => {
 
     const user = getUser(id);
 
-    if (!hasPermission(client, user.id, 'ADMINISTRATOR')) return message.channel.send('User is not an admin.');
+    if (!hasPermission(client, user.id, Permission.ADMINISTRATOR)) return message.channel.send('User is not an admin.');
 
-    user.permissions.splice(user.permissions.indexOf('ADMINISTRATOR'), 1);
+    user.permissions.splice(user.permissions.indexOf(Permission.ADMINISTRATOR), 1);
 
     setUser(user);
 
@@ -33,7 +34,7 @@ const removeUser = (client: Client, message: Message, id: string) => {
 const listUsers = (client: Client, message: Message) => {
     const users = clientUser(null);
 
-    const admins = users.filter((user: any) => hasPermission(client, user.id, 'ADMINISTRATOR'));
+    const admins = users.filter((user: any) => hasPermission(client, user.id, Permission.ADMINISTRATOR));
 
     message.channel.send(`Admins: ${admins.map((user: any) => user.id).join(', ')}`);
 }
@@ -58,6 +59,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'admin',
     description: 'Add or remove admins.',
-    permission: 'OWNER',
+    permission: Permission.OWNER,
     run
 }

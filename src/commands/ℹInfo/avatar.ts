@@ -1,3 +1,4 @@
+import Permission from "../../enums/Permission.js";
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
 import User from "../../functions/api/user.js";
@@ -13,6 +14,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'avatar',
     description: 'Get a user\'s avatar.',
-    permission: 'ADMINISTRATOR',
+    permission: Permission.ADMINISTRATOR,
     run
 }

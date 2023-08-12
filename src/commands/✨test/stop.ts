@@ -1,5 +1,7 @@
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
+import Permission from "../../enums/Permission.js";
+
 
 const run = async (client: Client, message: Message, args: string[]) => {
     await message.channel.send(`Stopping \`pid${process.pid}\` on \`${process.env.OS}\``);
@@ -11,6 +13,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'stop',
     description: 'Stops the bot',
-    permission: 'OWNER',
+    permission: Permission.OWNER,
     run
 }

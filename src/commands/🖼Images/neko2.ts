@@ -1,6 +1,7 @@
 import Client from "../../functions/api/client.js";
 import Message from "../../functions/api/message.js";
 import fetch from "node-fetch";
+import Permission from "../../enums/Permission.js";
 
 const run = async (client: Client, message: Message, args: string[]) => {
     // const category: any = await fetch('https://api.nekosapi.com/v2/categories/e9682ae3-a64b-4671-866d-3726d1d1d816');
@@ -20,6 +21,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'neko2',
     description: 'Get a random neko image.',
-    permission: 'ADMINISTRATOR',
+    permission: Permission.EVERYONE,
     run
 }
