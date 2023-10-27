@@ -21,6 +21,6 @@ const run = async (client: Client, message: Message, args: string[]) => {
 export default {
     name: 'neko2',
     description: 'Get a random neko image.',
-    permission: Permission.EVERYONE,
+    permission: Permission.ADMINISTRATOR,
     run
 }

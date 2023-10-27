@@ -36,7 +36,7 @@ class User {
     avatar: string;
     username: string;
     bot: boolean;
-    constructor(author: any) {
+    constructor(author: User) {
         this.id = author.id;
         this.flags = author.flags;
         this.discriminator = author.discriminator;

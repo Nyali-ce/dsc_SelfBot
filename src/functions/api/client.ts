@@ -5,6 +5,8 @@ const commandHandler = (client: Client) => {
     fs.readdirSync('dist/commands').forEach(folder => {
         const commandFiles = fs.readdirSync(`dist/commands/${folder}`).filter(file => file.endsWith('.js'));
 
+        console.log(commandFiles)
+
         commandFiles.forEach(async file => {
             const { default: command } = await import(`../../commands/${folder}/${file}`);
 

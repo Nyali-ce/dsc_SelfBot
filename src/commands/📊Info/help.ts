@@ -52,7 +52,7 @@ const run = async (client: Client, message: Message, args: string[]) => {
 
         const { default: commandInfo } = await import(`../../commands/${command}.js`);
 
-        message.channel.send(`**Command:** ${commandInfo.name}\n**Description:** ${commandInfo.description}\n**Permissions:** ${commandInfo.permissions?.join(', ')}`);
+        message.channel.send(`**Command:** ${commandInfo.name}\n**Description:** ${commandInfo.description}\n**Permissions:** ${commandInfo.permission}`);
     }
 }
 
