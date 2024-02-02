@@ -12,15 +12,11 @@ export default {
         const args = message.content!.slice(client.prefix.length).trim().split(/ +/g);
         const commandName = args.shift()!.toLowerCase();
 
-        console.log(client.commands)
         const command = client.commands[commandName]
 
-        console.log(command)
         if (!command) return;
 
         if (!hasPermission(client, message.author!.id!, command.permission)) return
-
-        console.log(message)
 
         try {
             command.run(client, message, args);
